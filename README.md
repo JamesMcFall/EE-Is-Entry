@@ -9,7 +9,8 @@ This plugin has one parameter and can simply be passed a entry ID or an entry UR
 For example if you were in the index template of your blog group on your website, you can test if there's a URL title or entry ID in the URL and if there is show the article page.
 
 ```html
-{if {exp:is_entry check="{last_segment}"}}
+<!-- The EE tags don't seem to be able to support a boolean check like if (true). I will ask Ellislab. -->
+{if {exp:is_entry check="{last_segment}"} == "TRUE"}
     {embed="Blog/post"}
 {if:else}
     <!-- No article in the URL, show the blog listing page -->
