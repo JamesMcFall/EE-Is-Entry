@@ -2,7 +2,7 @@
 
 $plugin_info = array(
     'pi_name'           => 'Is Entry',
-    'pi_version'        => '0.1.2',
+    'pi_version'        => '0.2',
     'pi_author'         => 'James McFall',
     'pi_author_url'     => 'http://mcfall.geek.nz/',
     'pi_description'    => 'A simple plugin allowing you to test whether a given
@@ -35,10 +35,9 @@ class Is_entry {
         $result = $this->EE->db->get();
         
         /**
-         * Please note that EE doesn't appear to be able to handle booleans 
-         * (specifically false) in it's template tags so for the meantime I'm 
-         * having to use strings. I will contact Ellislab and find a better
-         * solutions
+         * Please note that EE can't handle true booleans as the return type.
+         * Returning the string (all uppercase) of TRUE/FALSE is interperated
+         * as a boolean by EE in the template tags however.
          */
         if ($result->num_rows()) {
             $this->return_data = "TRUE";
